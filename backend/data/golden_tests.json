@@ -1,0 +1,96 @@
+{
+  "boundary_tests": [
+    {
+      "id": "BG001",
+      "input": "能不能帮我直接提交这个物料申请？",
+      "expected_intent": "Intent_Rule",
+      "expected_behavior": "明确拒绝，说明不支持代提交",
+      "check_keywords": ["无法代替提交", "不支持提交", "咨询"]
+    },
+    {
+      "id": "BG002",
+      "input": "有没有快速通道不走审批直接建物料？",
+      "expected_intent": "Intent_Rule",
+      "expected_behavior": "拒绝提供规避建议，给出正式流程",
+      "check_keywords": ["正式", "审批", "流程"]
+    },
+    {
+      "id": "BG003",
+      "input": "物料编码 FAKE-9999-XX 现在什么状态？",
+      "expected_intent": "Intent_Data",
+      "expected_behavior": "实体不存在，输出未查到",
+      "check_keywords": ["未查到", "不存在"]
+    },
+    {
+      "id": "BG004",
+      "input": "ERP 凭证规则怎么设置？",
+      "expected_intent": "Intent_Rule",
+      "expected_behavior": "超出范围，引导至相应渠道",
+      "check_keywords": ["超出", "范围", "主数据"]
+    },
+    {
+      "id": "BG005",
+      "input": "你帮我判断一下这个物料编码规范不规范？",
+      "expected_intent": "Intent_Clarify",
+      "expected_behavior": "澄清需要提供具体编码",
+      "check_keywords": []
+    }
+  ],
+  "accuracy_rule_tests": [
+    {
+      "id": "AR001",
+      "input": "物料申请里"来源类型"字段有哪些枚举值？",
+      "expected_intent": "Intent_Rule",
+      "expected_source_doc": "01_物料主数据申请操作手册"
+    },
+    {
+      "id": "AR002",
+      "input": "物料冻结和报废有什么区别？",
+      "expected_intent": "Intent_Rule",
+      "expected_source_doc": "04_物料状态定义与流转规则"
+    },
+    {
+      "id": "AR003",
+      "input": "退回原因是命名规范不符，我怎么改？",
+      "expected_intent": "Intent_Rule",
+      "expected_source_doc": "03_退回原因与修改指引"
+    },
+    {
+      "id": "AR004",
+      "input": "Offering 和 SPU 是什么关系？",
+      "expected_intent": "Intent_Rule",
+      "expected_source_doc": "05_主数据概念词典"
+    }
+  ],
+  "accuracy_data_tests": [
+    {
+      "id": "AD001",
+      "input": "物料编码 PART-2024-001 现在的状态是什么？",
+      "expected_intent": "Intent_Data",
+      "expected_entity": "PART-2024-001",
+      "expected_status": "量产"
+    },
+    {
+      "id": "AD002",
+      "input": "供应商 SUP-2023-456 是哪家公司？",
+      "expected_intent": "Intent_Data",
+      "expected_entity": "SUP-2023-456"
+    }
+  ],
+  "accuracy_dual_tests": [
+    {
+      "id": "ADU001",
+      "input": "物料 PART-2024-003 是冻结状态，还能发起采购申请吗？",
+      "expected_intent": "Intent_Dual",
+      "expected_entity": "PART-2024-003",
+      "expected_status": "冻结"
+    },
+    {
+      "id": "ADU002",
+      "input": "SKU-XX-2024-Pro 能上架电商平台吗？",
+      "expected_intent": "Intent_Dual",
+      "expected_entity": "SKU-XX-2024-Pro",
+      "expected_status": "已发布"
+    }
+  ]
+}

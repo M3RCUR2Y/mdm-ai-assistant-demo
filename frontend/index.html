@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>主数据AI助手 — 数智管家 Demo</title>
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+  <div class="app-container">
+    <!-- Sidebar -->
+    <aside class="sidebar">
+      <div class="sidebar-header">
+        <h1 class="logo">数智管家</h1>
+        <span class="version">V1.0 Demo</span>
+      </div>
+      <div class="sidebar-section">
+        <h3>示例问题</h3>
+        <div class="example-list" id="exampleList">
+          <!-- filled by JS -->
+        </div>
+      </div>
+      <div class="sidebar-footer">
+        <div class="mode-indicator" id="modeIndicator">
+          模式: <span id="llmMode">加载中...</span>
+        </div>
+      </div>
+    </aside>
+
+    <!-- Main Chat -->
+    <main class="chat-area">
+      <div class="chat-header">
+        <div class="chat-title">主数据AI助手（数智管家）</div>
+        <div class="chat-subtitle">基于 AI 智库 | 知识库 + MDM 数据联动 | 规则咨询 · 数据查询 · 双库联动</div>
+      </div>
+
+      <div class="messages-container" id="messagesContainer">
+        <div class="welcome-message">
+          <div class="welcome-icon">&#x1F916;</div>
+          <h2>你好，我是数智管家</h2>
+          <p>荣耀内部的主数据领域专家顾问。我可以帮你：</p>
+          <ul>
+            <li><strong>规则咨询</strong>：字段怎么填、流程是什么、退回怎么改</li>
+            <li><strong>数据查询</strong>：物料/供应商的当前状态、负责人是谁</li>
+            <li><strong>双库联动</strong>：基于当前状态给出规则解读和下一步操作</li>
+          </ul>
+          <p class="hint">试试右侧的示例问题，或直接输入你的问题。</p>
+        </div>
+      </div>
+
+      <div class="input-area">
+        <div class="input-wrapper">
+          <textarea
+            id="userInput"
+            placeholder="输入你的问题，如：物料编码 PART-2024-001 现在的状态是什么？"
+            rows="1"
+            autofocus
+          ></textarea>
+          <button id="sendBtn" class="send-btn" title="发送 (Enter)">
+            <svg width="20" height="20" viewBox="0 0 20 20" fill="currentColor">
+              <path d="M2 10l16-8-8 16-2-8-6-0z"/>
+            </svg>
+          </button>
+        </div>
+        <div class="input-hint">按 Enter 发送，Shift+Enter 换行</div>
+      </div>
+    </main>
+  </div>
+
+  <script src="/js/app.js"></script>
+</body>
+</html>
