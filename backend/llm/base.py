@@ -33,7 +33,7 @@ class OpenAICompatibleLLM(LLMBase):
                     {"role": "user", "content": user_prompt},
                 ],
                 temperature=0.3,
-                max_tokens=1024,
+                max_tokens=4096,
             )
             return response.choices[0].message.content or ""
         except Exception:
@@ -66,7 +66,7 @@ User: "{user_message}"
                 model=self.model,
                 messages=[{"role": "user", "content": prompt}],
                 temperature=0.1,
-                max_tokens=1024,
+                max_tokens=4096,
             )
             result = (response.choices[0].message.content or "").strip()
 
