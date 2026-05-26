@@ -76,7 +76,7 @@ async def chat(req: ChatRequest):
 
 @app.get("/api/health")
 async def health():
-    return {"status": "ok", "llm_mode": config.LLM_MODE}
+    return {"status": "ok", "llm_mode": config.LLM_MODE, "provider": config.LLM_MODE}
 
 
 @app.get("/api/examples")
