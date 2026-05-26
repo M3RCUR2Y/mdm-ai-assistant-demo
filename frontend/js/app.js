@@ -198,14 +198,9 @@ function addLoadingMessage() {
 // === Formatting ===
 function formatMessageContent(text) {
   if (!text) return '';
-  // Highlight 【知识库】 and 【MDM】 annotations
-  let html = escapeHtml(text);
+  let html = marked.parse(text);
   html = html.replace(/【知识库】/g, '<span class="kb-highlight">【知识库】</span>');
   html = html.replace(/【MDM】/g, '<span class="mdm-highlight">【MDM】</span>');
-  // Handle bold markers
-  html = html.replace(/\*\*(.+?)\*\*/g, '<strong>$1</strong>');
-  // Handle newlines
-  html = html.replace(/\n/g, '<br>');
   return html;
 }
 
