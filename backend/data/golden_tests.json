@@ -39,7 +39,7 @@
   "accuracy_rule_tests": [
     {
       "id": "AR001",
-      "input": "物料申请里"来源类型"字段有哪些枚举值？",
+      "input": "物料申请里“来源类型”字段有哪些枚举值？",
       "expected_intent": "Intent_Rule",
       "expected_source_doc": "01_物料主数据申请操作手册"
     },
