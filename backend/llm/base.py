@@ -66,7 +66,7 @@ User: "{user_message}"
                 model=self.model,
                 messages=[{"role": "user", "content": prompt}],
                 temperature=0.1,
-                max_tokens=32,
+                max_tokens=1024,
             )
             result = (response.choices[0].message.content or "").strip()
 
