@@ -21,7 +21,7 @@ class OpenAICompatibleLLM(LLMBase):
 
     def __init__(self, api_key: str, base_url: str, model: str):
         from openai import OpenAI
-        self.client = OpenAI(api_key=api_key, base_url=base_url)
+        self.client = OpenAI(api_key=api_key, base_url=base_url, timeout=30.0)
         self.model = model
 
     def generate(self, system_prompt: str, user_prompt: str) -> str:
@@ -68,7 +68,7 @@ User: "{user_message}"
                 temperature=0.1,
                 max_tokens=32,
             )
-            result = response.choices[0].message.content.strip()
+            result = (response.choices[0].message.content or "").strip()
 
             for intent in ["Intent_Rule", "Intent_Data", "Intent_Dual", "Intent_Clarify"]:
                 if intent in result:
